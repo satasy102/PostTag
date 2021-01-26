@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="">
+<head th:replace="layout::header-css">
+</head>
+
+<body>
+<th:block th:insert="layout::block-nav">
+</th:block>
+<input type="hidden" value="Danh sách Post">
+<div class="container">
+    <h1 id="indexTitle">Danh sách Post</h1>
+    <div class="row">
+        <div class="col-6">
+            <button type="button" class="btn btn-primary" onclick="posts.addNew()">
+                Thêm mới
+            </button>
+        </div>
+    </div>
+    <!-- Button to Open the Modal -->
+
+    <!-- The Modal -->
+    <div class="modal" id="modalAddEdit" name="modalAddEdit">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modalTitle"></h4>
+                    <button type="button" class="close" onclick="posts.resetForm()" data-dismiss="modal">&times;
+                    </button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form id="formAddEdit" th:name="formAddEdit">
+                        <input hidden name="post_id" id="post_id">
+                        <div class="row form-group">
+                            <div class="col-3">
+                                <label>Tiêu đề</label>
+                            </div>
+                            <div class="col-9">
+                                <input class="form-control" type="text"
+                                       name="title" id="title"
+                                       data-rule-required=true>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-3">
+                                <label>Tóm tắt nội dung</label>
+                            </div>
+                            <div class="col-9">
+                                <input class="form-control" type="text"
+                                       name="description" id="description"
+                                       data-rule-required=true>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-3">
+                                <label>Nội dung</label>
+                            </div>
+                            <div class="col-9">
+                                <input class="form-control" type="text"
+                                       name="content" id="content"
+                                       data-rule-required=true>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-3">
+                                <label>Gắn thẻ Tag</label>
+                            </div>
+                            <div class="col-9">
+                                <select class="tag" name="tags" multiple="multiple" id="tag" required>
+
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <a href="javascript:" class="btn btn-primary"
+                       onclick="posts.save()">Lưu</a>
+
+                    <button type="button" class="btn btn-danger" onclick="posts.resetForm()" data-dismiss="modal">Đóng
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <th:block th:insert="layout::block-dataTable">
+
+    </th:block>
+</div>
+
+<th:block th:insert="layout::block-script" >
+</th:block>
+<script src="admin-assert/js/postmain.js"></script>
+</body>
+</html>

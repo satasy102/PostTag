@@ -1,0 +1,32 @@
+
+body {
+    background: url(../img/bg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.error {
+    color: red;
+}
+
+.select2-container--default .select2-search--inline .select2-search__field {
+    width: 20.75em !important;
+}
+
+/*.table {*/
+/*    background-color: dark;*/
+/*}*/
+
+.table tr:nth-child(even) {
+    background-color: #eee;
+}
+.table tr:nth-child(odd) {
+    background-color: #fff;
+}
+.table th {
+    color: white;
+    background-color: black;
+    font-size: smaller;
+}
